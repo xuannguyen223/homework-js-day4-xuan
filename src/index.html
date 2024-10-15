@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập function</title>
+    <!-- MY CSS  -->
+    <link rel="stylesheet" href="./css/output.css" />
+  </head>
+  <body>
+    <h1 class="my-6 text-4xl text-indigo-600 font-bold text-center">
+      Bài tập js buổi 4 - Xuân - BC77
+    </h1>
+    <!-- Bài 1 -->
+    <section class="area">
+      <div class="container">
+        <h1>🏫 Quản lý tuyển sinh</h1>
+        <p class="mb-2">
+          <span class="text-indigo-500 font-bold">Hướng dẫn:</span> Bạn cần nhập
+          điểm chuẩn của hội đồng, điểm 3 môn thi của thí sinh, chọn khu vực và
+          đối tượng dự thi. Hệ thống sẽ trả về kết quả cho biết thí sinh đậu hay
+          rớt và tổng số điểm đạt được. Điều kiện để thí sinh trúng tuyển (đậu)
+          là tổng số điểm đạt được >= điểm chuẩn và ko có môn nào bị liệt (điểm
+          0).
+        </p>
+        <input
+          id="cutoffScore"
+          class="inputDecor"
+          type="number"
+          placeholder="Điểm chuẩn"
+        />
+        <select id="area" name="area" class="inputDecor">
+          <option value="0">Chọn khu vực</option>
+          <option value="2">A</option>
+          <option value="1">B</option>
+          <option value="0.5">C</option>
+        </select>
+        <select id="object" name="object" class="inputDecor">
+          <option value="0">Chọn đối tượng</option>
+          <option value="2.5">1</option>
+          <option value="1.5">2</option>
+          <option value="1">3</option>
+        </select>
+        <input
+          id="score1"
+          class="inputDecor"
+          type="number"
+          placeholder="Điểm môn thứ 1"
+        />
+        <input
+          id="score2"
+          class="inputDecor"
+          type="number"
+          placeholder="Điểm môn thứ 2"
+        />
+        <input
+          id="score3"
+          class="inputDecor"
+          type="number"
+          placeholder="Điểm môn thứ 3"
+        />
+        <button id="result" class="btn2">Kết quả</button>
+        <p class="showResult">👉 <span id="admissionResult"></span></p>
+      </div>
+    </section>
+    <!-- Bài 2 -->
+    <section class="area">
+      <div class="container">
+        <h1>🔋Tính tiền điện</h1>
+        <p class="mb-2">
+          <span class="text-indigo-500 font-bold">Hướng dẫn:</span> Nhập tên và
+          số Kw điện bạn đã tiêu thụ. Hệ thống sẽ trả về số tiền điện mà bạn
+          phải trả dựa trên biểu phí bậc thang.
+        </p>
+        <!-- Nếu code xong mà có thời gian thì chèn thêm biểu phí vào đây -->
+        <input
+          id="customerName"
+          class="inputDecor"
+          type="text"
+          placeholder="Nhập họ tên"
+        />
+        <input
+          id="kw"
+          class="inputDecor"
+          type="number"
+          placeholder="Nhập số Kw"
+        />
+        <button id="eBill" class="btn2">Tính tiền điện</button>
+        <p class="showResult">👉 <span id="eBillResult"></span></p>
+      </div>
+    </section>
+    <!-- Bài 3 -->
+    <section class="area">
+      <div class="container">
+        <h1>💰 Tính thuế thu nhập cá nhân</h1>
+        <p class="mb-2">
+          <span class="text-indigo-500 font-bold">Hướng dẫn:</span> Thu nhập
+          chịu thuế của bạn sẽ được tính theo công thức:
+          <b
+            >Thu nhập chịu thuế = Tổng thu nhập năm - 4tr - (Số người phụ thuộc
+            * 1.6tr)</b
+          >
+          . Số tiền thuế mà bạn phải đóng sẽ được hệ thống tính dựa trên biểu
+          phí bậc thang.
+        </p>
+        <!-- Nếu code xong mà có thời gian thì chèn thêm biểu phí vào đây -->
+        <input
+          id="customerName"
+          class="inputDecor"
+          type="text"
+          placeholder="Nhập họ tên"
+        />
+        <input
+          class="inputDecor"
+          type="number"
+          placeholder="Tổng thu nhập năm"
+        />
+        <input
+          class="inputDecor"
+          type="number"
+          placeholder="Số người phụ thuộc"
+        />
+        <button class="btn2">Tính tiền thuế</button>
+        <p id="resultDemo3" class="showResult">👉</p>
+      </div>
+    </section>
+    <!-- Bài 4 -->
+    <section id="demo4" class="area">
+      <div class="container">
+        <h1>🕸️ Tính tiền cáp</h1>
+        <p class="mb-2">
+          <span class="text-indigo-500 font-bold">Hướng dẫn:</span> Hướng dẫn
+          tính tiền cáp
+        </p>
+        <select name="typeCustomer" id="typeCustomer" class="inputDecor">
+          <option value="0">Chọn loại khách hàng</option>
+          <option value="1">Nhà Dân</option>
+          <option value="2">Doanh Nghiệp</option>
+        </select>
+        <input
+          class="inputDecor"
+          type="text"
+          placeholder="Nhập mã khách hàng"
+        />
+        <input class="inputDecor" type="number" placeholder="Số kênh cao cấp" />
+        <!-- số kết nối chỉ hiện ra khi user chọn loại khách hàng là doanh nghiệp, fix chỗ này nha -->
+        <input class="inputDecor" type="number" placeholder="Số kết nối" />
+        <button class="btn2">Tính tiền cáp</button>
+        <p id="resultDemo4" class="showResult">👉</p>
+      </div>
+    </section>
+
+    <!-- MY JS  -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
