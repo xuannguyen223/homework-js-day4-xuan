@@ -31,15 +31,15 @@
         />
         <select id="area" name="area" class="inputDecor">
           <option value="0">Chọn khu vực</option>
-          <option value="2">A</option>
-          <option value="1">B</option>
-          <option value="0.5">C</option>
+          <option title="Khu vực A được +2đ" value="2">A</option>
+          <option title="Khu vực B được +1đ" value="1">B</option>
+          <option title="Khu vực C được +0.5đ" value="0.5">C</option>
         </select>
         <select id="object" name="object" class="inputDecor">
           <option value="0">Chọn đối tượng</option>
-          <option value="2.5">1</option>
-          <option value="1.5">2</option>
-          <option value="1">3</option>
+          <option title="Đối tượng 1 được +2.5đ" value="2.5">1</option>
+          <option title="Đối tượng 2 được +1.5đ" value="1.5">2</option>
+          <option title="Đối tượng 3 được +1đ" value="1">3</option>
         </select>
         <input
           id="score1"
@@ -72,7 +72,22 @@
           số Kw điện bạn đã tiêu thụ. Hệ thống sẽ trả về số tiền điện mà bạn
           phải trả dựa trên biểu phí bậc thang.
         </p>
-        <!-- Nếu code xong mà có thời gian thì chèn thêm biểu phí vào đây -->
+        <button id="levelFeeOfEBill" class="block text-red-700 underline">
+          Click vào đây đây xem biểu phí 💡
+        </button>
+        <div
+          id="detailEBill"
+          class="bg-indigo-200 w-fit my-4 p-4 rounded-md text-gray-500 hidden"
+        >
+          <ul>
+            <li class="font-bold">Biểu phí tiêu thụ điện</li>
+            <li>. 50kw đầu: 500đ/kw</li>
+            <li>. 50kw kế: 650đ/kw</li>
+            <li>. 100kw kế: 850đ/kw</li>
+            <li>. 150kw kế: 1100đ/kw</li>
+            <li>. Còn lại: 1300đ/kw</li>
+          </ul>
+        </div>
         <input
           id="customerName"
           class="inputDecor"
@@ -90,7 +105,7 @@
       </div>
     </section>
     <!-- Bài 3 -->
-    <section class="area">
+    <section id="tax" class="area">
       <div class="container">
         <h1>💰 Tính thuế thu nhập cá nhân</h1>
         <p class="mb-2">
@@ -103,7 +118,15 @@
           . Số tiền thuế mà bạn phải đóng sẽ được hệ thống tính dựa trên biểu
           phí bậc thang.
         </p>
-        <!-- Nếu code xong mà có thời gian thì chèn thêm biểu phí vào đây -->
+        <button id="levelFeeOfPITBill" class="block text-red-700 underline">
+          Click vào đây đây xem biểu phí 💡
+        </button>
+        <div
+          id="detailPITBill"
+          class="bg-indigo-200 w-1/2 my-4 p-4 rounded-md text-gray-500 hidden"
+        >
+          <img src="./img/taxFee.png" alt="taxFee" />
+        </div>
         <input
           id="customerName"
           class="inputDecor"
@@ -111,21 +134,24 @@
           placeholder="Nhập họ tên"
         />
         <input
+          id="income"
           class="inputDecor"
           type="number"
+          title="Vui lòng nhập theo đơn vị VND"
           placeholder="Tổng thu nhập năm"
         />
         <input
+          id="dependent"
           class="inputDecor"
           type="number"
           placeholder="Số người phụ thuộc"
         />
-        <button class="btn2">Tính tiền thuế</button>
-        <p id="resultDemo3" class="showResult">👉</p>
+        <button id="PITBill" class="btn2">Tính tiền thuế</button>
+        <p class="showResult">👉<span id="PITBillResult"></span></p>
       </div>
     </section>
     <!-- Bài 4 -->
-    <section id="demo4" class="area">
+    <section class="area">
       <div class="container">
         <h1>🕸️ Tính tiền cáp</h1>
         <p class="mb-2">
@@ -133,24 +159,35 @@
           tính tiền cáp
         </p>
         <select name="typeCustomer" id="typeCustomer" class="inputDecor">
-          <option value="0">Chọn loại khách hàng</option>
-          <option value="1">Nhà Dân</option>
-          <option value="2">Doanh Nghiệp</option>
+          <option id="undefinedCustomer" value="0">Chọn loại khách hàng</option>
+          <option id="consumer" value="1">Nhà Dân</option>
+          <option id="business" value="2">Doanh Nghiệp</option>
         </select>
         <input
+          id="customerID"
           class="inputDecor"
           type="text"
           placeholder="Nhập mã khách hàng"
         />
-        <input class="inputDecor" type="number" placeholder="Số kênh cao cấp" />
-        <!-- số kết nối chỉ hiện ra khi user chọn loại khách hàng là doanh nghiệp, fix chỗ này nha -->
-        <input class="inputDecor" type="number" placeholder="Số kết nối" />
-        <button class="btn2">Tính tiền cáp</button>
-        <p id="resultDemo4" class="showResult">👉</p>
+        <input
+          id="premiumChannel"
+          class="inputDecor"
+          type="number"
+          placeholder="Số kênh cao cấp"
+        />
+        <input
+          id="connections"
+          class="inputDecor hidden"
+          type="number"
+          placeholder="Số kết nối"
+        />
+        <button id="internetFee" class="btn2">Tính tiền cáp</button>
+        <p class="showResult">👉 <span id="internetFeeResult"></span></p>
       </div>
     </section>
 
     <!-- MY JS  -->
     <script src="./js/main.js"></script>
+    <script src="./js/feeSchedule.js"></script>
   </body>
 </html>
